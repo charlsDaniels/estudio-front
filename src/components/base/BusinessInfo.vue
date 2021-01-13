@@ -5,7 +5,7 @@
         title="Permanecé en contacto con nosotros"
         pace="6"
       >
-        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Illo pariatur quidem, quis modi iure nihil commodi suscipit, corporis dicta adipisci, voluptatum quia cupiditate. Nulla minus voluptatum nostrum deleniti, asperiores facere.
+       Podés comunicarte con nosotros a través de distintos medios.
       </base-info-card>
 
       <base-business-contact dense />

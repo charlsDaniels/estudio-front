@@ -24,6 +24,26 @@ const router = new Router({
           component: () => import('@/views/home/Index.vue'),
         },
         {
+          path: 'login',
+          name: 'Ingresar',
+          component: () => import('@/views/login/Index.vue'),
+        },
+        {
+          path: 'logout',
+          name: 'Salir',
+          component: () => import('@/views/logout/Index.vue'),
+        },
+        {
+          path: 'admin',
+          name: 'Admin Panel',
+          component: () => import('@/views/admin/Index.vue'),
+        },
+        {
+          path: 'posts',
+          name: 'Posts',
+          component: () => import('@/views/admin/posts/Index.vue'),
+        },
+        {
           path: 'about',
           name: 'El estudio',
           component: () => import('@/views/about/Index.vue'),
@@ -39,7 +59,13 @@ const router = new Router({
           path: 'services',
           name: 'Servicios',
           component: () => import('@/views/services/Index.vue'),
-          meta: { src: require('@/assets/pro.jpg') },
+          meta: { src: require('@/assets/pricing.jpg') },
+        },
+        {
+          path: 'news',
+          name: 'Noticias',
+          component: () => import('@/views/news/Index.vue'),
+          meta: { src: require('@/assets/marketing.jpg') },
         },
         {
           path: '*',

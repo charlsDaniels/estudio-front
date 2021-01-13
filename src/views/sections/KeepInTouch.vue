@@ -10,7 +10,7 @@
           md="5"
         >
           <base-business-info title="Permanecé en contacto con nosotros">
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Illo pariatur quidem, quis modi iure nihil commodi suscipit, corporis dicta adipisci, voluptatum quia cupiditate.
+            Podés comunicarte con nosotros a través de distintos medios.
           </base-business-info>
         </v-col>
 
@@ -18,7 +18,7 @@
           cols="12"
           md="6"
         >
-          <base-contact-form title="Envianos tu consulta a nuestro e-mail" />
+          <base-contact-form title="Envianos tu consulta" />
         </v-col>
       </v-row>
     </v-container>

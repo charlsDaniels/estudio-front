@@ -2,11 +2,11 @@
   <base-section
     id="pro-features"
   >
-    <v-img
+    <!-- <v-img
       :src="require('@/assets/logo.svg')"
       class="mx-auto mb-8"
       max-width="128"
-    />
+    /> -->
 
     <base-section-heading title="Feature Comparison">
       Get the PRO version of <strong>Zero</strong> and level up your theme<br>with additional components, pages, and Free updates.

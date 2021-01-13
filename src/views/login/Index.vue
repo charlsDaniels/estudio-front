@@ -4,27 +4,24 @@
 
   // Mixins
   import LoadSections from '@/mixins/load-sections'
-
+  
   export default {
-    name: 'ContactUs',
+    name: 'Ingresar',
 
-    metaInfo: { title: 'Contacto' },
+    metaInfo: { title: 'Ingresar' },
 
     extends: View,
 
     mixins: [
       LoadSections([
-        'hero-alt',
-        'keep-in-touch',
-        // 'map',
-        'social-media',
+        'login',
       ]),
     ],
 
     props: {
       id: {
         type: String,
-        default: 'about',
+        default: 'login',
       },
     },
   }

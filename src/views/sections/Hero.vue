@@ -13,7 +13,7 @@
           max-width="700"
           width="100%"
         >
-          <base-heading title="Bienvenidos a Estudio Ricciardi y Asociados" />
+          <base-heading title="Bienvenidos a Estudio Contable" />
 
           <base-body>
             Somos un Estudio dedicado a brindar asesoramiento integral y personalizado a nuestros clientes en materia impositiva, contable, laboral y societaria.
@@ -28,19 +28,20 @@
             <base-btn
               :to='{ name: "El estudio" }'
             >
-              Descubrir más
+              Nosotros
             </base-btn>
 
-            <!-- <span class="font-weight-bold ml-6 mr-4 my-4">or</span> -->
+            <span class="font-weight-bold ml-6 mr-4 my-4"></span>
 
-            <!-- <base-btn
+            <base-btn
               :ripple="false"
+              :to='{ name: "Servicios" }'
               class="pa-1"
               height="auto"
               text
             >
-              Get Started Now
-            </base-btn> -->
+              Nuestros servicios
+            </base-btn>
           </div>
         </v-responsive>
       </v-container>

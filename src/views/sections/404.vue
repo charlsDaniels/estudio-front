@@ -12,13 +12,13 @@
       title="Parece que esa página no existe"
     />
 
-    <base-img
+    <!-- <base-img
       :src="require('@/assets/logo.svg')"
       class="mx-auto mb-12"
       contain
       height="350"
       width="250"
-    />
+    /> -->
 
     <div class="text-center">
       <base-btn :to="{ name: 'Home' }">

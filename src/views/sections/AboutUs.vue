@@ -8,15 +8,39 @@
     <v-container>
       <v-row>
         <v-col
-          v-for="card in cards"
-          :key="card.title"
-          cols="12"
-          md="4"
-        >
-          <base-info-card v-bind="card" />
+          md="6"
+        >        
+          <v-img
+            :src="require('@/assets/carla.jpeg')"
+            class="mx-auto mb-8"
+            max-width="128"
+          />
+
+          <base-section-heading title="Carla Conosciuto">
+            Contador Público<br>Amante de los gatos
+          </base-section-heading>
+          
         </v-col>
+      
+        <v-col
+          md="6"
+        >
+          <v-img
+            :src="require('@/assets/tomás.jpg')"
+            class="mx-auto mb-8"
+            max-width="128"
+          />
+
+
+          <base-section-heading title="Tomás 'el Gato'">
+            Su tarea más difícil es ser <strong>"Gato"</strong>
+          </base-section-heading>
+
+        </v-col>
+
       </v-row>
     </v-container>
+
   </base-section>
 </template>
 
@@ -26,24 +50,7 @@
 
     data: () => ({
       cards: [
-        {
-          title: 'Incremente sus ingresos',
-          subtitle: 'Máxima productividad',
-          text: 'Similique sunt in culpa qui officia deserunt mollitia animi, id est laborut dolorum fuga.harum quidem rerum facilis estexpedita distinctio.',
-          callout: '01',
-        },
-        {
-          title: 'Precios asequibles',
-          subtitle: 'Ofertas especiales',
-          text: 'Similique sunt in culpa qui officia deserunt mollitia animi, id est laborut dolorum fuga.harum quidem rerum facilis estexpedita distinctio.',
-          callout: '02',
-        },
-        {
-          title: 'Objetivos claros',
-          subtitle: 'Flujo de ingresos',
-          text: 'Similique sunt in culpa qui officia deserunt mollitia animi, id est laborut dolorum fuga.harum quidem rerum facilis estexpedita distinctio.',
-          callout: '03',
-        },
+        
       ],
     }),
   }

@@ -6,25 +6,23 @@
   import LoadSections from '@/mixins/load-sections'
 
   export default {
-    name: 'ContactUs',
+    name: 'AdminPanel',
 
-    metaInfo: { title: 'Contacto' },
+    metaInfo: { title: 'Admin Panel' },
 
     extends: View,
 
     mixins: [
       LoadSections([
         'hero-alt',
-        'keep-in-touch',
-        // 'map',
-        'social-media',
+        'admin-panel'
       ]),
     ],
 
     props: {
       id: {
         type: String,
-        default: 'about',
+        default: 'Admin Panel',
       },
     },
   }

@@ -1,13 +1,39 @@
 import Vue from 'vue'
 import App from './App.vue'
 import router from './router'
+import store from './store'
 import vuetify from './plugins/vuetify'
 import './plugins'
+import VueAxios from './plugins/axios'
 
+// vee-validate
+import {
+  ValidationProvider,
+  ValidationObserver,
+  setInteractionMode
+} from "vee-validate";
+
+setInteractionMode("eager");
+
+Vue.component("ValidationProvider", ValidationProvider);
+Vue.component("ValidationObserver", ValidationObserver);
+
+import './plugins/vee-validate';
+// vee-validate
+
+import VueSweetalert2 from 'vue-sweetalert2';
+ 
+// If you don't need the styles, do not connect
+import 'sweetalert2/dist/sweetalert2.min.css'
+ 
 Vue.config.productionTip = false
+
+Vue.use(VueAxios)
+Vue.use(VueSweetalert2)
 
 new Vue({
   router,
+  store,
   vuetify,
   render: h => h(App),
 }).$mount('#app')

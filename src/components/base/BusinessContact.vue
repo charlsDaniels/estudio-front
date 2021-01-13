@@ -13,7 +13,7 @@
           :key="i"
           :icon="icon"
           :outlined="false"
-          :title="!dense ? t : undefined"
+          title=""
           color="transparent"
           horizontal
           space="0"
@@ -29,6 +29,7 @@
           class="my-2"
         />
       </template>
+     
     </div>
   </v-theme-provider>
 </template>

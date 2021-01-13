@@ -8,7 +8,7 @@
       height="80"
     >
 
-      <v-toolbar-title>Estudio Ricciardi y Asociados</v-toolbar-title>
+      <v-toolbar-title>Estudio Contable</v-toolbar-title>
 
       <!-- <base-img
         :src="require('@/assets/logo.svg')"
@@ -33,7 +33,7 @@
           optional
         >
           <v-tab
-            v-for="(name, i) in items"
+            v-for="(name, i) in getItems()"
             :key="i"
             :to="{ name }"
             :exact="name === 'Home'"
@@ -45,6 +45,7 @@
           >
             {{ name }}
           </v-tab>
+      
         </v-tabs>
       </div>
 
@@ -56,12 +57,14 @@
 
     <home-drawer
       v-model="drawer"
-      :items="items"
+      :items="getItems()"
     />
   </div>
 </template>
 
 <script>
+  import { mapGetters } from 'vuex'
+
   export default {
     name: 'HomeAppBar',
 
@@ -71,13 +74,28 @@
 
     data: () => ({
       drawer: null,
-      items: [
-        'Inicio',
-        'El estudio',
-        'Servicios',
-        'Contacto',
-      ],
     }),
+
+    computed: {
+      ...mapGetters([
+        'isLogged'
+      ]),
+      
+    },
+
+    methods: {
+      getItems() {
+        return [
+            'Inicio',
+            'El estudio',
+            'Servicios',
+            'Noticias',
+            'Contacto',
+            this.isLogged ? 'Salir' : 'Ingresar',
+            this.isLogged ? 'Admin Panel' : ''
+        ]
+      }
+    }
   }
 </script>
 

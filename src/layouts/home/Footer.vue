@@ -7,17 +7,19 @@
   >
     <v-container>
       <v-row>
-        <v-col
+        <!-- <v-col
           cols="12"
           md="6"
         >
           <div class="d-flex flex-wrap justify-md-start justify-center justify-md-none">
             <template v-for="(s, i) in social">
+             
               <a
-                :key="s"
+                :key="s.name"
                 class="white--text pa-1 pa-md-0"
-                href="#"
-                v-text="s"
+                :href="s.link"
+                v-text="s.name"
+                target="blank"
               />
 
               <v-responsive
@@ -30,14 +32,12 @@
               </v-responsive>
             </template>
           </div>
-        </v-col>
+        </v-col>  -->
 
         <v-col
-          class="text-center text-md-right"
-          cols="12"
-          md="6"
+          class="text-center"
         >
-          Copyright &copy; 2020 Estudio Ricciardi y Asociados
+          Copyright &copy; 2020 Estudio Contable
         </v-col>
       </v-row>
     </v-container>
@@ -50,9 +50,14 @@
 
     data: () => ({
       social: [
-        'Facebook',
-        'Twitter',
-        'Instagram',
+        // { 
+        //   name: 'Facebook', 
+        //   link: 'https://www.facebook.com/EstudioContableWeb1'
+        // },
+        // { 
+        //   name: 'Instagram', 
+        //   link: 'https://www.instagram.com/elestudioweb/' 
+        // }
       ],
     }),
   }
