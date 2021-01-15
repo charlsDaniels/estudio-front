@@ -8,16 +8,38 @@
       height="80"
     >
 
-      <v-toolbar-title>Estudio Contable</v-toolbar-title>
+    <v-menu 
+      v-if="isLogged"
+      offset-y
+    >
+      <template v-slot:activator="{ on, attrs }">
+      
+          <v-app-bar-nav-icon
+            v-on="on"
+            v-bind="attrs">
 
-      <!-- <base-img
-        :src="require('@/assets/logo.svg')"
+          </v-app-bar-nav-icon>
+        
+      </template>
+      <v-list>
+        <v-list-item
+          @click="toAdminPanel()"
+        >
+          <v-list-item-title>Admin Panel</v-list-item-title>
+        </v-list-item>
+      </v-list>
+    </v-menu>
+
+<!-- 
+      <base-img
+        :src="require('@/assets/Estudio Ricciardi.png')"
         class="mr-3 hidden-xs-only"
         contain
-        max-width="52"
+        max-width="350"
         width="100%"
-      />
-
+      /> -->
+      <v-toolbar-title>Estudio Ricciardi y Assoc.</v-toolbar-title>
+<!-- 
       <base-img
         :src="require('@/assets/zero-logo-light.svg')"
         contain
@@ -33,7 +55,7 @@
           optional
         >
           <v-tab
-            v-for="(name, i) in getItems()"
+            v-for="(name, i) in $root.items"
             :key="i"
             :to="{ name }"
             :exact="name === 'Home'"
@@ -57,7 +79,7 @@
 
     <home-drawer
       v-model="drawer"
-      :items="getItems()"
+      :items="$root.items"
     />
   </div>
 </template>
@@ -74,9 +96,19 @@
 
     data: () => ({
       drawer: null,
+      // items: [
+      //       'Inicio',
+      //       'El estudio',
+      //       'Servicios',
+      //       'Noticias',
+      //       'Contacto',
+      //       // this.isLogged ? 'Salir' : 'Ingresar',
+      //       // this.isLogged ? 'Admin Panel' : ''
+      //   ]
     }),
 
     computed: {
+
       ...mapGetters([
         'isLogged'
       ]),
@@ -84,16 +116,16 @@
     },
 
     methods: {
-      getItems() {
-        return [
-            'Inicio',
-            'El estudio',
-            'Servicios',
-            'Noticias',
-            'Contacto',
-            this.isLogged ? 'Salir' : 'Ingresar',
-            this.isLogged ? 'Admin Panel' : ''
-        ]
+      toLogin() {
+        this.$router.push({ path: 'login' })
+      },
+      toAdminPanel() {
+        this.$router.push({ path: 'admin' })
+      },
+      logout() {
+        this.$store.dispatch('logout')
+        this.$root.items.shift()
+        this.$router.push({ path: '/' })
       }
     }
   }

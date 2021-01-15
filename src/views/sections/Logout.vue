@@ -20,6 +20,9 @@ export default {
   methods: {
     logout () {
       this.$store.dispatch('logout')
+      // this.$root.items.shift()
+      this.$root.items.pop()
+      this.$root.items.push('Ingresar')
       this.$router.push({ name: 'Inicio' })
     },
   }

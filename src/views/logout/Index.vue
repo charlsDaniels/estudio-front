@@ -21,7 +21,7 @@
     props: {
       id: {
         type: String,
-        default: 'login',
+        default: 'logout',
       },
     },
     

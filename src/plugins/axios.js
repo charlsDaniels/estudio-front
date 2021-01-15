@@ -1,7 +1,7 @@
 import ax from 'axios'
 
 // insert all your axios logic here
-ax.defaults.baseURL = 'http://localhost/My_Symfony_Stuff/estudio-back/public/index.php'
+ax.defaults.baseURL = 'http://estudio-ricciardi.local/index.php'
 
 export const axios = ax
 

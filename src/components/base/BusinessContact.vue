@@ -54,12 +54,12 @@
         {
           icon: 'mdi-cellphone',
           title: 'Teléfonos',
-          text: '221 4337544<br>221 6233633',
+          text: '221 5039637<br>221 5591881',
         },
         {
           icon: 'mdi-email',
           title: 'Email',
-          text: 'mariano_ricciardi@gmail.com<br>carla.conosciuto@hotmail.com',
+          text: 'estudio_ricciardi@gmail.com',
         },
       ],
     }),

@@ -22,7 +22,7 @@
     props: {
       id: {
         type: String,
-        default: 'about',
+        default: 'News',
       },
     },
   }

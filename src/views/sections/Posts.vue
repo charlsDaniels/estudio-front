@@ -3,6 +3,10 @@
     id="posts"
     space="56"
   >
+    <base-section-heading
+      color="grey lighten-2"
+      title="Noticias"
+    />
     <v-container>
 
        <div v-if="posts">

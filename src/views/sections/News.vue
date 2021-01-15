@@ -26,17 +26,17 @@
               ></v-progress-linear>
             </template>
 
-            <v-img
+            <!-- <v-img
               height="250"
               :src="getImgUrl(card.img)"
-            ></v-img>
+            ></v-img> -->
 
             <v-card-title>{{ card.title }}</v-card-title>
 
-            <v-card-subtitle>{{ card.date }}</v-card-subtitle>
+            <v-card-subtitle>{{ $root.formatDate(card.createdAt.date) }}</v-card-subtitle>
 
             <v-card-text>
-              {{ card.text }}
+              {{ card.text.substring(0,150) }}...
             </v-card-text>
 
             <v-divider class="mx-4"></v-divider>
@@ -45,7 +45,7 @@
               <v-btn
                 color="deep-purple lighten-2"
                 text
-                @click="reserve"
+                @click="showNotice(card.id)"
               >
                 Ver más
               </v-btn>
@@ -56,6 +56,44 @@
       </v-row>
 
     </v-container>
+
+    <!-- a partir de acá modal de nueva noticia -->
+    <div>
+      <v-row justify="center">
+        <v-dialog
+          v-model = dialog
+          fullscreen
+          hide-overlay
+          transition="dialog-bottom-transition"
+        >
+          <v-card>
+            <v-toolbar
+              dark
+              color="#355173"
+            >
+              <v-btn
+                icon
+                dark
+                @click="dialog = false"
+              >
+                <v-icon>mdi-close</v-icon>
+              </v-btn>
+              <v-toolbar-title>{{ selectedNotice.title }}</v-toolbar-title>
+              <v-spacer></v-spacer>
+              
+            </v-toolbar>
+
+            <v-container>
+
+              <p>{{ selectedNotice.text }}</p>
+
+            </v-container>
+
+          </v-card>
+        </v-dialog>
+      </v-row>
+    </div>
+    
   </base-section>
 </template>
 
@@ -64,38 +102,34 @@
     name: 'SectionNews',
 
     data: () => ({
-      cards: [
-        {
-          img: 'noticia1.jpeg',
-          title: 'ITI – Qué es y cuándo se puede pedir la exención en AFIP?',
-          date: 'Feb 4, 2019',
-          text: 'El ITI es el Impuesto a la Transferencia de Inmuebles, y tal cómo su nombre lo indica, es un impuesto que grava (con una tasa del 1,5%) todas las...',
-        },
-        {
-          img: 'noticia2.jpeg',
-          title: 'Ganancias 2018 – Deducciones Personales permitidas por Ley',
-          date: 'Feb 4, 2019',
-          text: 'Para el ejercicio que está por terminar, cuyo vencimiento operará en junio 2019, las deducciones personales admitidas por ley serán las siguientes...',
-        },
-        {
-          img: 'noticia3.jpeg',
-          title: 'Valuación Fiscal y Bienes Personales 2018: Aumentos de hasta el 1000%',
-          date: 'Julio 16, 2019',
-          text: 'En nuestro país, cada una de las provincias posee un impuesto que es calculado en base a una alícuota...',
-        },
-        {
-          img: 'noticia4.jpeg',
-          title: 'Qué es una SAS?',
-          date: 'Enero 4, 2020',
-          text: 'Se trata de la Sociedad por Acciones Simplificada y es una nueva modalidad societaria que viene a “simplificar” las tan populares Sociedades Anónimas... ',
-        },
-      ],
+      cards: null,
+      selectedNotice: {
+        title: '',
+        text: ''
+      },
+      dialog: false
     }),
+    created () {
+      this.getNoticias()
+    },
     methods: {
 
       getImgUrl(pic) {
         return require('../../assets/' + pic)
+      },
+
+      async getNoticias() {
+        const response = await this.$axios.get('/posts')
+        this.cards = response.data
+      },
+
+      showNotice(id) {
+        let noticia = this.cards.filter(card => card.id === id )
+        this.selectedNotice.title = noticia[0].title
+        this.selectedNotice.text = noticia[0].text
+        this.dialog = true
       }
+
 
     }
   }

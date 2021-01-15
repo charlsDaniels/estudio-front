@@ -15,7 +15,7 @@
     mixins: [
       LoadSections([
         'hero-alt',
-        'admin-panel'
+        'posts'
       ]),
     ],
 

@@ -3,10 +3,10 @@ import { extend } from 'vee-validate'
 
 extend('required', {
   ...required,
-  message: '{_field_} can not be empty',
+  message: '{_field_} no puede estar vacío',
 })
 
 extend('email', {
   ...email,
-  message: 'Email must be valid',
+  message: 'Debe ser un e-mail válido',
 })

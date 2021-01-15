@@ -14,15 +14,12 @@
             md="4"
           >
 
-            <validation-observer
-              ref="observer"
-              v-slot="{ invalid }"
-            >
+            
               <form @submit.prevent="submit">
 
                 <validation-provider
                   v-slot="{ errors }"
-                  name="username"
+                  name="Nombre de usuario"
                   rules="required"
                 >
                   <v-text-field
@@ -35,7 +32,7 @@
 
                 <validation-provider
                   v-slot="{ errors }"
-                  name="password"
+                  name="Contraseña"
                   rules="required"
                 >
                   <v-text-field
@@ -49,13 +46,13 @@
                 <v-btn
                   class="mr-4"
                   type="submit"
-                  :disabled="invalid"
+                  :disabled="canSubmit"
                 >
                   Aceptar
                 </v-btn>
                
               </form>
-            </validation-observer>
+           
 
         </v-col>
       </v-row>
@@ -83,9 +80,17 @@ export default {
           _password: this.password
         })
         .then(() => {
-          this.$router.push({ name: 'Admin Panel' })
+          // this.$root.items.unshift('Admin Panel')
+          this.$root.items.pop()
+          this.$root.items.push('Salir')
+          this.$router.push({ name: 'Inicio' })
         })
         .catch(err => {
+          this.$swal.fire(
+            'Se produjo un error',
+            'Usuario o contraseña inválidos',
+            'error'
+          )
           console.log(err)
         })
     },
@@ -94,6 +99,11 @@ export default {
       this.password = ''
       this.$refs.observer.reset()
     },
+  },
+  computed: {
+    canSubmit() {
+      return !(this.username && this.password)
+    }
   }
 }
 </script>
